@@ -30,8 +30,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build for web
+            - name: Build for web
         run: npx expo export --platform web
+
+      - name: Fix paths for GitHub Pages
+        run: |
+          sed -i 's|href="/|href="./|g' dist/index.html
+          sed -i 's|src="/|src="./|g' dist/index.html
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
