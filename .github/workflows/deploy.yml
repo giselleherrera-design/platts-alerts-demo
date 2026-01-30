@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-            - name: Build for web
+      - name: Build for web
         run: npx expo export --platform web
 
       - name: Fix paths for GitHub Pages
